@@ -1,9 +1,12 @@
+extern crate diesel;
+
 use crate::domains::models::id::Id;
 use crate::domains::models::item::Item;
 use crate::interfaces::persistence::db::Database;
 use crate::interfaces::server::handler::{
   delete_grocery_list_item, get_grocery_list, update_grocery_list_item,
 };
+
 use warp::{Filter, Rejection, Reply};
 
 fn delete_json() -> impl Filter<Extract = (Id,), Error = warp::Rejection> + Clone {
